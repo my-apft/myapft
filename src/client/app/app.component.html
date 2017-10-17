@@ -1,0 +1,18 @@
+<pm-navbar (onMenuIconClick)="sidenav.toggle()" [user]="user$ | async"></pm-navbar>
+<mat-sidenav-container class="sidenav-container" (pmClickOutside)="sidenav.close()" exclude="#toggle-menu-button">
+  <mat-sidenav #sidenav class="sidenav mat-elevation-z6">
+    <mat-list>
+      <h3 matSubheader>Pages</h3>
+      <mat-list-item>
+        <!-- <mat-icon matListIcon>folder</mat-icon> -->
+        <a matLine mat-button routerLink="/" (click)="sidenav.close()">Home</a>
+      </mat-list-item>
+      <!-- <mat-divider></mat-divider>
+      <h3 matSubheader>Boss Area</h3>
+      <mat-list-item>
+        <a matLine mat-button routerLink="admin" (click)="sidenav.close()">Admin</a>
+      </mat-list-item> -->
+    </mat-list>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

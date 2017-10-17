@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavbarComponent should compile 1`] = `
+<div
+  id="root0"
+  ng-version="5.0.0-rc.2"
+>
+  <nav
+    class="mat-elevation-z6"
+  >
+    
+  
+    <button
+      angulartics2on="click"
+      angularticsevent="ToggleSideMenu"
+      class="mat-icon-button"
+      id="toggle-menu-button"
+      mat-icon-button=""
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    
+        <mat-icon
+          fonticon="fa-bars"
+          fontset="fa"
+        />
+        
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple mat-button-ripple-round"
+        matripple=""
+        ng-reflect-centered="true"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+    
+  
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/"
+      mat-button=""
+      ng-reflect-router-link=""
+      routerlink=""
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        FB-ANGULAR-UNIVERSAL-STARTER
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    
+  
+    <div
+      class="flex-spacer"
+    />
+    
+  
+    
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/dashboard"
+      mat-button=""
+      ng-reflect-router-link="dashboard"
+      ng-reflect-router-link-active="active"
+      ng-reflect-router-link-active-options="[object Object]"
+      routerlinkactive="active"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    Dashboard
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/dashboard"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/about"
+      mat-button=""
+      ng-reflect-router-link="about"
+      ng-reflect-router-link-active="active"
+      ng-reflect-router-link-active-options="[object Object]"
+      routerlinkactive="active"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    About
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/about"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    
+  
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/api-docs"
+      mat-button=""
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        API
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/api-docs"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    
+  
+    <button
+      aria-haspopup="true"
+      class="mat-icon-button"
+      id="user-menu-btn"
+      mat-icon-button=""
+      ng-reflect-menu="[object Object]"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    
+        <mat-icon
+          fonticon="fa-user-circle-o"
+          fontset="fa"
+        />
+        
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple mat-button-ripple-round"
+        matripple=""
+        ng-reflect-centered="true"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+    
+  
+    <mat-menu>
+      
+    </mat-menu>
+    
+
+  </nav>
+</div>
+`;
+
+exports[`NavbarComponent should contain a list of links 1`] = `
+<div
+  id="root1"
+  ng-version="5.0.0-rc.2"
+>
+  <nav
+    class="mat-elevation-z6"
+  >
+    
+  
+    <button
+      angulartics2on="click"
+      angularticsevent="ToggleSideMenu"
+      class="mat-icon-button"
+      id="toggle-menu-button"
+      mat-icon-button=""
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    
+        <mat-icon
+          fonticon="fa-bars"
+          fontset="fa"
+        />
+        
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple mat-button-ripple-round"
+        matripple=""
+        ng-reflect-centered="true"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+    
+  
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/"
+      mat-button=""
+      ng-reflect-router-link=""
+      routerlink=""
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        FB-ANGULAR-UNIVERSAL-STARTER
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    
+  
+    <div
+      class="flex-spacer"
+    />
+    
+  
+    
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/dashboard"
+      mat-button=""
+      ng-reflect-router-link="dashboard"
+      ng-reflect-router-link-active="active"
+      ng-reflect-router-link-active-options="[object Object]"
+      routerlinkactive="active"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    Dashboard
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/dashboard"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/about"
+      mat-button=""
+      ng-reflect-router-link="about"
+      ng-reflect-router-link-active="active"
+      ng-reflect-router-link-active-options="[object Object]"
+      routerlinkactive="active"
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    About
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/about"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    
+  
+    <a
+      aria-disabled="false"
+      class="nav-button mat-button"
+      href="/api-docs"
+      mat-button=""
+      tabindex="0"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        API
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple"
+        matripple=""
+        ng-reflect-centered="false"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="/api-docs"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </a>
+    
+  
+    <button
+      aria-haspopup="true"
+      class="mat-icon-button"
+      id="user-menu-btn"
+      mat-icon-button=""
+      ng-reflect-menu="[object Object]"
+    >
+      <span
+        class="mat-button-wrapper"
+      >
+        
+    
+        <mat-icon
+          fonticon="fa-user-circle-o"
+          fontset="fa"
+        />
+        
+  
+      </span>
+      <div
+        class="mat-button-ripple mat-ripple mat-button-ripple-round"
+        matripple=""
+        ng-reflect-centered="true"
+        ng-reflect-disabled="false"
+        ng-reflect-trigger="[object HTMLButtonElement]"
+      />
+      <div
+        class="mat-button-focus-overlay"
+      />
+    </button>
+    
+  
+    <mat-menu>
+      
+    </mat-menu>
+    
+
+  </nav>
+</div>
+`;

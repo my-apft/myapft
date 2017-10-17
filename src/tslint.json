@@ -1,0 +1,66 @@
+{
+  "rulesDirectory": [
+    "../node_modules/codelyzer"
+  ],
+  "extends": [
+    "angular-tslint-rules"
+  ],
+  "rules": {
+    "angular-whitespace": [true, "check-interpolation", "check-semicolon"],
+    "space-within-parens": [false],
+    "object-literal-key-quotes": [
+      false
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "align": [
+      false
+    ],
+    "no-console": [
+      false
+    ],
+    "curly": false,
+    "typedef": [
+      false
+    ],
+    "member-ordering": [
+      false
+    ],
+    "member-access": [
+     false,
+     "no-public"
+    ],
+    "newline-before-return": false,
+    "directive-selector": [
+      true,
+      "attribute",
+      [
+        "app",
+        "pm"
+      ],
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      [
+        "pm",
+        "app",
+        "test",
+        "i18n"
+      ],
+      "kebab-case"
+    ],
+    "use-view-encapsulation": false,
+    "pipe-naming": [
+      true,
+      "camelCase",
+      "kr"
+    ],
+    "array-type": [
+      false
+    ]
+  }
+}
