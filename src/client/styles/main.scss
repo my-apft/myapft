@@ -11,6 +11,10 @@ $theme: mat-light-theme($primary, $accent);
   @include angular-material-theme($dark-t);
 }
 
+.warn {
+  color: mat-color($mat-red, 500);
+}
+
 html {
   font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
 }
@@ -58,3 +62,4 @@ body {
 .mat-menu-content {
   padding: 0 !important;
 }
+

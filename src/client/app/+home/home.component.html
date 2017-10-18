@@ -1,5 +1,5 @@
 <mat-card>
-  <form [formGroup]="form">
+  <form [formGroup]="form" novalidate>
     <mat-radio-group formControlName="gender">
       <mat-radio-button value="male">Male</mat-radio-button>
       <mat-radio-button value="female">Female</mat-radio-button>
@@ -8,10 +8,12 @@
     <div class="cal-flex">
       <div>
         <mat-form-field>
-          <input matInput [matDatepicker]="dobpicker" placeholder="Date of Birth" formControlName="dob">
+          <input matInput [matDatepicker]="dobpicker" placeholder="Date of Birth" formControlName="dob" [max]="maxDob" [min]="minDob">
           <mat-datepicker #dobpicker></mat-datepicker>
+          <mat-error *ngIf="form.get('dob').hasError('matDatepickerMin')"> Must be younger than 75 </mat-error>
+          <mat-error *ngIf="form.get('dob').hasError('matDatepickerMax')"> Must be older than 17 </mat-error>
         </mat-form-field>
-        <button mat-icon-button (click)="dobpicker.open()" class="btn-cal">
+        <button mat-icon-button (click)="dobpicker.open()" class="btn-cal" type="button">
           <mat-icon fontSet="fa" fontIcon="fa-calendar" aria-label="calendar"></mat-icon>
         </button>
       </div>
@@ -20,29 +22,23 @@
           <input matInput [matDatepicker]="picker" placeholder="Date of Test" formControlName="date">
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <button mat-icon-button (click)="picker.open()" class="btn-cal">
+        <button mat-icon-button (click)="picker.open()" class="btn-cal" type="button">
           <mat-icon fontSet="fa" fontIcon="fa-calendar" aria-label="calendar"></mat-icon>
         </button>
       </div>
     </div>
-    <div class="flex">
-      <mat-form-field>
-        <input matInput type="number" placeholder="Push Ups" formControlName="pu" min="0" max="200">
-        <!-- <mat-error *ngIf="options.get('fontSize').invalid">Min size: 10px</mat-error> -->
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="number" placeholder="Sit Ups" formControlName="su" min="0" max="200">
-        <!-- <mat-error *ngIf="options.get('fontSize').invalid">Min size: 10px</mat-error> -->
-      </mat-form-field>
-    </div>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Push Ups" formControlName="pu" min="0" max="200">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Sit Ups" formControlName="su" min="0" max="200">
+    </mat-form-field>
     <div class="flex">
       <mat-form-field>
         <input matInput type="number" placeholder="Run (minutes)" formControlName="runMin" min="0" max="30">
-        <!-- <mat-error *ngIf="options.get('fontSize').invalid">Min size: 10px</mat-error> -->
       </mat-form-field>
       <mat-form-field>
         <input matInput type="number" placeholder="Run (seconds)" formControlName="runSec" min="0" max="60">
-        <!-- <mat-error *ngIf="options.get('fontSize').invalid">Min size: 10px</mat-error> -->
       </mat-form-field>
     </div>
 
@@ -52,7 +48,23 @@
         </mat-form-field> -->
     <!-- <button mat-raised-button color="primary" [disabled]="form.invalid">Save</button> -->
   </form>
-  <p></p>
-  <h4>{{ age$ | async }}</h4>
-  <h1>Score: {{ 0 || (score$ | async) }}</h1>
+  <div class="results">
+    <div *ngIf="score$ | async as score">
+      <h2 [ngClass]="{ 'warn': score.failed }" class="center">{{ score.resultText }}</h2>
+      <div class="wrapper">
+        <div>
+          <p>Sit-ups:
+            <span [ngClass]="{ 'warn': score.su.failed }">{{ score.su.score }}</span>
+          </p>
+          <p>Push-ups:
+            <span [ngClass]="{ 'warn': score.pu.failed }">{{ score.pu.score }}</span>
+          </p>
+          <p>2-Mile Run:
+            <span [ngClass]="{ 'warn': score.run.failed }">{{ score.run.score }}</span>
+          </p>
+        </div>
+        <h2 class="center-h2">{{ score.total }}</h2>
+      </div>
+    </div>
+  </div>
 </mat-card>

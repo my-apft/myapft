@@ -21,6 +21,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 })
 export class AppComponent {
   public user$ = this.auth.user$
+  public footer = `Copyright © ${new Date().getFullYear()} My APFT`
 
   constructor(ss: SettingService, meta: Meta, analytics: Angulartics2GoogleAnalytics, wss: WebSocketService,
     renderer: Renderer2, @Inject(DOCUMENT) doc: HTMLDocument, http: HttpClient, matIconRegistry: MatIconRegistry,
@@ -67,7 +68,7 @@ export class AppComponent {
           }
         } else {
           // set default cache
-          srs.setCache('public', '7d', '7d')
+          srs.setCache('public', '1d', '1d')
         }
         if (response && response.headers) {
           srs.setHeaders(response.headers)

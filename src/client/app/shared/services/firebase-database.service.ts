@@ -32,4 +32,12 @@ export class FirebaseDatabaseService {
   cacheKey(path: string) {
     return makeStateKey<string>(`FB.${path}`)
   }
+
+  static encodeKey(val: string) {
+    return encodeURIComponent(val).replace('.', '%2E')
+  }
+
+  static dencodeKey(encodedValue: string) {
+    return decodeURIComponent(encodedValue).replace('%2E', '.')
+  }
 }

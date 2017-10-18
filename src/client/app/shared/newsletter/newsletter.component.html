@@ -1,0 +1,17 @@
+<h1>Email Newsletter</h1>
+<p>Enter your email address and click the button below to get free updates about the app and its upcoming features.</p>
+<form [formGroup]="form" novalidate>
+  <mat-form-field>
+    <input matInput type="email" placeholder="Your Email" formControlName="email" angulartics2On="focus" angularticsEvent="InputFocus"
+    [angularticsProperties]="{label: 'Email Newslettter'}">
+    <mat-error *ngIf="form.controls.email.hasError('pattern')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="form.controls.email.hasError('required')">
+      Email is
+      <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <button (click)="subscribe()" mat-raised-button angulartics2On="click" angularticsEvent="ButtonClick" [angularticsProperties]="{label: 'Subscribe to Newsletter'}" color="primary" [disabled]="!form.valid">Subscribe</button>
+</form>

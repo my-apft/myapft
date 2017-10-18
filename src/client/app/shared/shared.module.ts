@@ -12,6 +12,7 @@ import { EnvironmentService } from './services/environment.service'
 import { COOKIE_HOST_WHITELIST } from './services/http-cookie-interceptor.service'
 import { ENV_CONFIG } from '../app.config'
 import { NavbarService } from './navbar/navbar.service'
+import { NewsletterComponent } from './newsletter/newsletter.component'
 import { Angulartics2GoogleAnalytics, Angulartics2Module } from 'angulartics2'
 import { MaterialModule } from './material.module'
 import { ClickOutsideDirective } from './directives/click-outside.directive'
@@ -74,14 +75,19 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
     LoginCardComponent,
     FormsModule,
     ReactiveFormsModule,
-    MarkdownToHtmlModule
+    MarkdownToHtmlModule,
+    NewsletterComponent
     // FlexLayoutModule,
+  ],
+  entryComponents: [
+    NewsletterComponent
   ],
   declarations: [
     NavbarComponent,
     ClickOutsideDirective,
     SocialButtonDirective,
-    LoginCardComponent
+    LoginCardComponent,
+    NewsletterComponent
   ],
   providers: [
     { provide: ENV_CONFIG, useFactory: fuseBoxConfigFactory },

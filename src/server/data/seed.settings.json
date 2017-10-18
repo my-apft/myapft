@@ -2,9 +2,9 @@
   "dev": {
     "host": "localhost:8000",
     "og": {
-      "title": "Fusebox Angular Universal Starter",
-      "description": "Seed project for Angular Universal apps featuring Server-Side Rendering (SSR), FuseBox, dev/prod builds, Brotli/Gzip, SCSS, favicon generation, @types, unit testing w/ Jest, and sitemap generator. Created by Patrick Michalina",
-      "image": "https://d3anl5a3ibkrdg.cloudfront.net/assets/favicons/android-chrome-512x512.png",
+      "title": "My APFT",
+      "description": "Calculate and manage your U.S. Army Physical Fitness (APFT) tests.Created by Patrick Michalina",
+      "image": "",
       "type": "website",
       "locale": "en_US"
     },
@@ -69,7 +69,7 @@
         "element": "meta",
         "attributes": {
           "name": "google-site-verification",
-          "content": "RW-hcjXEgPMoy2NF8pTl8IEzP8gnj3cEZ6aF1HDUiOc"
+          "content": "R3HnLSxLG5a34qhdhSN7h_8LpbrkbUy-Mv0PhMaXAbE"
         }
       },
       {
@@ -94,15 +94,11 @@
       "en": {
         "about": {
           "title": "About",
-          "description": "See contact information and details about the Angular Universal seed at angular.patrickmichalina.com"
+          "description": "My APFT is your personal army physical fitness calculator"
         },
         "account": {
           "title": "Account",
           "description": "Update your profile and account settings"
-        },
-        "dashboard": {
-          "title": "Dashboard",
-          "description": "An example dashboard page"
         },
         "admin": {
           "title": "Admin",
@@ -114,7 +110,7 @@
         },
         "home": {
           "title": "Home",
-          "description": "A fullstack angular starter framework to quickly build mid-large scale web applications"
+          "description": "Your personal army physical fitness calculator"
         },
         "login": {
           "title": "Login",
@@ -124,10 +120,6 @@
           "title": "Logged Out",
           "description": "Come back again!"
         },
-        "search": {
-          "title": "Search",
-          "description": "Search for angular related projects on github, to showcase the flicker-free http state transfer of an Angular isomorphic application."
-        },
         "signup": {
           "title": "Signup",
           "description": "Sign up for an account with us. Create an account to start doing cool things with our application. It\"s easy to register"
@@ -136,21 +128,15 @@
           "title": "Not Found",
           "description": "The page you requested can not be found."
         }
-      },
-      "jp": {
-        "home": {
-          "title": "こんにちは",
-          "description": ""
-        }
       }
     }
   },
   "prod": {
     "host": "www.myapft.com",
     "og": {
-      "title": "Fusebox Angular Universal Starter",
-      "description": "Seed project for Angular Universal apps featuring Server-Side Rendering (SSR), FuseBox, dev/prod builds, Brotli/Gzip, SCSS, favicon generation, @types, unit testing w/ Jest, and sitemap generator. Created by Patrick Michalina",
-      "image": "https://d3anl5a3ibkrdg.cloudfront.net/assets/favicons/android-chrome-512x512.png",
+      "title": "My APFT",
+      "description": "Calculate and manage your U.S. Army Physical Fitness (APFT) tests.Created by Patrick Michalina",
+      "image": "",
       "type": "website",
       "locale": "en_US"
     },
@@ -215,7 +201,7 @@
         "element": "meta",
         "attributes": {
           "name": "google-site-verification",
-          "content": "RW-hcjXEgPMoy2NF8pTl8IEzP8gnj3cEZ6aF1HDUiOc"
+          "content": "R3HnLSxLG5a34qhdhSN7h_8LpbrkbUy-Mv0PhMaXAbE"
         }
       },
       {
@@ -240,15 +226,11 @@
       "en": {
         "about": {
           "title": "About",
-          "description": "See contact information and details about the Angular Universal seed at angular.patrickmichalina.com"
+          "description": "My APFT is your personal army physical fitness calculator"
         },
         "account": {
           "title": "Account",
           "description": "Update your profile and account settings"
-        },
-        "dashboard": {
-          "title": "Dashboard",
-          "description": "An example dashboard page"
         },
         "admin": {
           "title": "Admin",
@@ -260,7 +242,7 @@
         },
         "home": {
           "title": "Home",
-          "description": "A fullstack angular starter framework to quickly build mid-large scale web applications"
+          "description": "Your personal army physical fitness calculator"
         },
         "login": {
           "title": "Login",
@@ -270,10 +252,6 @@
           "title": "Logged Out",
           "description": "Come back again!"
         },
-        "search": {
-          "title": "Search",
-          "description": "Search for angular related projects on github, to showcase the flicker-free http state transfer of an Angular isomorphic application."
-        },
         "signup": {
           "title": "Signup",
           "description": "Sign up for an account with us. Create an account to start doing cool things with our application. It\"s easy to register"
@@ -281,12 +259,6 @@
         "not-found": {
           "title": "Not Found",
           "description": "The page you requested can not be found."
-        }
-      },
-      "jp": {
-        "home": {
-          "title": "こんにちは",
-          "description": ""
         }
       }
     }

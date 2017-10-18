@@ -4,8 +4,8 @@
       ".read": "true",
       ".write": "root.child('users').child(auth.uid).child('roles/superadmin').val() === true"
     },
-    "posts": {
-      ".read": "true",
+    "subscribers": {
+      ".read": "false",
       ".write": "true"
     },
     "users": {
