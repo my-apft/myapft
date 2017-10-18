@@ -4,6 +4,7 @@
       <mat-radio-button value="male">Male</mat-radio-button>
       <mat-radio-button value="female">Female</mat-radio-button>
     </mat-radio-group>
+    <br>
     <div class="cal-flex">
       <div>
         <mat-form-field>
@@ -52,5 +53,6 @@
     <!-- <button mat-raised-button color="primary" [disabled]="form.invalid">Save</button> -->
   </form>
   <p></p>
+  <h4>Age: {{ age$ | async }}</h4>
   <h1>Score: {{ 0 || (score$ | async) }}</h1>
 </mat-card>
