@@ -1,6 +1,7 @@
+import { EnvironmentService } from './environment.service'
 import { Observable } from 'rxjs/Observable'
 import { Injectable } from '@angular/core'
-import { ISetting } from '../../../../server/api/services/setting.service'
+import { ISetting, ISettings } from '../../../../server/api/services/setting.service'
 import { FirebaseDatabaseService } from './firebase-database.service'
 
 export interface ISettingService {
@@ -12,7 +13,8 @@ export interface ISettingService {
 export class SettingService implements ISettingService {
   public initialSettings: ISetting
   public settings$ = this.db
-    .get<ISetting>('site-settings')
+    .get<ISettings>('site-settings')
+    .map(a => a && a[this.env.config.env || 'prod'])
     .map(settings => {
       return {
         injections: [],
@@ -26,7 +28,7 @@ export class SettingService implements ISettingService {
       .reduce((o, k) => (o || {})[k], dict as any))
   }
 
-  constructor(private db: FirebaseDatabaseService) {
+  constructor(private db: FirebaseDatabaseService, private env: EnvironmentService) {
     this.settings$.take(1).subscribe(set => this.initialSettings = set)
   }
 }

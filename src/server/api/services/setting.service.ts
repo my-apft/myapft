@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable'
 import { Service } from 'typedi'
-import { ISetting, SettingRepository } from '../repositories/setting.repository'
-export { ISetting }
+import { ISetting, ISettings, SettingRepository } from '../repositories/setting.repository'
+export { ISetting, ISettings }
 
 export interface ISettingService {
   settings$: Observable<ISetting>

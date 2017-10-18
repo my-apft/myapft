@@ -3,6 +3,10 @@ import { Service } from 'typedi'
 import { SETTINGS } from './settings'
 import { FirebaseAppConfig } from 'angularfire2'
 
+export interface ISettings { [key: string]: ISetting }
+
+// export type ISettings = { [key: string]: ISetting }
+
 export interface ISetting {
   host: string
   og: {
