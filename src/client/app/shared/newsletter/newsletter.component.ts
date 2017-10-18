@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { MatDialogRef } from '@angular/material';
-import { FirebaseDatabaseService } from '../services/firebase-database.service';
+import { MatDialogRef } from '@angular/material'
+import { FirebaseDatabaseService } from '../services/firebase-database.service'
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
