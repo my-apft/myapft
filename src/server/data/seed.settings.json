@@ -120,6 +120,10 @@
           "title": "Logged Out",
           "description": "Come back again!"
         },
+        "instructions": {
+          "title": "Test Instructions",
+          "description": "Instructions for the Army Physical Fitness Test (APFT) on how to perform push-ups, sit-ups, and the 2-mile run."
+        },
         "signup": {
           "title": "Signup",
           "description": "Sign up for an account with us. Create an account to start doing cool things with our application. It\"s easy to register"
@@ -251,6 +255,10 @@
         "logout": {
           "title": "Logged Out",
           "description": "Come back again!"
+        },
+        "instructions": {
+          "title": "Test Instructions",
+          "description": "Instructions for the Army Physical Fitness Test (APFT) on how to perform push-ups, sit-ups, and the 2-mile run."
         },
         "signup": {
           "title": "Signup",
