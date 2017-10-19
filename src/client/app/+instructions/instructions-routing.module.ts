@@ -14,6 +14,13 @@ import { MetaGuard } from '@ngx-meta/core'
           meta: {
             title: 'i18n.instructions.title',
             description: 'i18n.instructions.description'
+          },
+          response: {
+            cache: {
+              directive: 'public',
+              maxage: '365d',
+              smaxage: '365d'
+            }
           }
         }
       }

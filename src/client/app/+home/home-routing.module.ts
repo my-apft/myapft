@@ -20,9 +20,6 @@ import { MetaGuard } from '@ngx-meta/core'
               directive: 'public',
               maxage: '7d',
               smaxage: '7d'
-            },
-            headers: {
-              'X-Cool-Tag': 'some-value'
             }
           }
         }
