@@ -7,7 +7,5 @@ export class ContentService {
     return this.db.get(`content/${key}`)
   }
 
-  constructor(private db: FirebaseDatabaseService) {
-
-  }
+  constructor(private db: FirebaseDatabaseService) { }
 }

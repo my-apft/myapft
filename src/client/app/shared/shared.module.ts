@@ -21,9 +21,9 @@ import { MarkdownToHtmlModule } from 'markdown-to-html-pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FirebaseDatabaseService } from './services/firebase-database.service'
 import { ApftModule } from './apft/material/apft.module'
-import { APFT_STANDARDS } from './apft/apft.service';
-import { ContentService } from './services/content.service';
-import { PmKeysPipe } from './pipes/keys.pipe';
+import { APFT_STANDARDS } from './apft/apft.service'
+import { ContentService } from './services/content.service'
+import { PmKeysPipe } from './pipes/keys.pipe'
 // import { FlexLayoutModule } from '@angular/flex-layout'
 
 declare var __process_env__: any

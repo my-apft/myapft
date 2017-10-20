@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { ContentService } from '../shared/services/content.service';
+import { ContentService } from '../shared/services/content.service'
 
 @Component({
   selector: 'pm-instructions',
