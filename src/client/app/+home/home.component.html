@@ -1,5 +1,6 @@
 <mat-card>
-  <form [formGroup]="form" novalidate>
+  <pm-apft-material></pm-apft-material>
+  <!-- <form [formGroup]="form" novalidate>
     <mat-radio-group formControlName="gender">
       <mat-radio-button value="male">Male</mat-radio-button>
       <mat-radio-button value="female">Female</mat-radio-button>
@@ -41,12 +42,6 @@
         <input matInput type="number" placeholder="Run (seconds)" formControlName="runSec" min="0" max="60">
       </mat-form-field>
     </div>
-
-    <!-- <mat-form-field>
-          <input matInput type="number" placeholder="Font size (px)" formControlName="fontSize" min="10">
-          <mat-error *ngIf="options.get('fontSize').invalid">Min size: 10px</mat-error>
-        </mat-form-field> -->
-    <!-- <button mat-raised-button color="primary" [disabled]="form.invalid">Save</button> -->
   </form>
   <div class="results">
     <div *ngIf="score$ | async as score">
@@ -66,5 +61,5 @@
         <h2 class="center-h2">{{ score.total }}</h2>
       </div>
     </div>
-  </div>
+  </div> -->
 </mat-card>

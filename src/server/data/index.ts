@@ -7,6 +7,7 @@ import { put } from 'request'
 import { SERVER_CONFIG } from '../server.config'
 
 const SEED_SITE_SETTINGS = require('./seed.settings.json')
+const SEED_APFT_STANDARDS_SETTINGS = require('./seed.apft-standards.json')
 const SEED_SECURITY_RULES = require('./security-rules.json')
 const SEED_SUPERUSERS = require('./seed.superusers.json') as { [key: string]: { roles: { [key: string]: string } } }[]
 
@@ -33,6 +34,10 @@ export const dbSeed = (db: admin.database.Database) => {
     })
   })
 
+  const apftStandards = forkJoin(...def).map((admins: any[]) => {
+    return fromPromise(db.ref('apft-standards').set(SEED_APFT_STANDARDS_SETTINGS))
+  })
+
   put(`${db.app.options.databaseURL}/.settings/rules.json?auth=${SERVER_CONFIG.FB_AUTH_KEY}`, {
     body: JSON.stringify(SEED_SECURITY_RULES, undefined, 2)
   }, (error, response, body) => {
@@ -44,7 +49,8 @@ export const dbSeed = (db: admin.database.Database) => {
 
   const sources = [
     siteSettings,
-    superusers
+    superusers,
+    apftStandards
   ]
   return forkJoin(...sources)
 }

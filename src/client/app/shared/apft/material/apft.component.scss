@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  .btn-cal {
+    margin-left: -2.4em
+  }
+  .cal-flex {
+    flex: 1;
+    display: flex;
+  }
+  .flex {
+    display: flex;
+     ::ng-deep mat-form-field {
+      width: 100%;
+    }
+  }
+   ::ng-deep mat-radio-group {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

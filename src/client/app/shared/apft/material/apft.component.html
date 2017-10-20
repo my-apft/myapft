@@ -1,0 +1,35 @@
+<form [formGroup]="form" novalidate>
+  <mat-radio-group formControlName="gender">
+    <mat-radio-button value="male">Male</mat-radio-button>
+    <mat-radio-button value="female">Female</mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <div class="cal-flex">
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="dobpicker" placeholder="Date of Birth" formControlName="dob" [max]="maxDob" [min]="minDob">
+        <mat-datepicker #dobpicker></mat-datepicker>
+        <mat-error *ngIf="form.get('dob').hasError('matDatepickerMin')"> Must be younger than 75 </mat-error>
+        <mat-error *ngIf="form.get('dob').hasError('matDatepickerMax')"> Must be older than 17 </mat-error>
+      </mat-form-field>
+      <button mat-icon-button (click)="dobpicker.open()" class="btn-cal" type="button">
+        <mat-icon fontSet="fa" fontIcon="fa-calendar" aria-label="calendar"></mat-icon>
+      </button>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date of Test" formControlName="date">
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-icon-button (click)="picker.open()" class="btn-cal" type="button">
+        <mat-icon fontSet="fa" fontIcon="fa-calendar" aria-label="calendar"></mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-form-field><input matInput type="number" placeholder="Push Ups" formControlName="pu" min="0" max="200"></mat-form-field>
+  <mat-form-field><input matInput type="number" placeholder="Sit Ups" formControlName="su" min="0" max="200"></mat-form-field>
+  <div class="flex">
+    <mat-form-field><input matInput type="number" placeholder="Run (minutes)" formControlName="runMin" min="0" max="30"></mat-form-field>
+    <mat-form-field><input matInput type="number" placeholder="Run (seconds)" formControlName="runSec" min="0" max="60"></mat-form-field>
+  </div>
+</form>

@@ -20,12 +20,18 @@ import { SocialButtonDirective } from './directives/social-button.directive'
 import { MarkdownToHtmlModule } from 'markdown-to-html-pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FirebaseDatabaseService } from './services/firebase-database.service'
+import { ApftModule } from './apft/material/apft.module'
+import { APFT_STANDARDS } from './apft/apft.service';
 // import { FlexLayoutModule } from '@angular/flex-layout'
 
 declare var __process_env__: any
 
 export function fuseBoxConfigFactory() {
   return JSON.parse(__process_env__.angularAppConfig)
+}
+
+export function apftStandardFactory(db: FirebaseDatabaseService) {
+  return db.get('apft-standards')
 }
 
 export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angulartics2GoogleAnalytics) {
@@ -61,6 +67,11 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
     FormsModule,
     ReactiveFormsModule,
     MarkdownToHtmlModule,
+    ApftModule.forRoot({
+      provide: APFT_STANDARDS,
+      useFactory: apftStandardFactory,
+      deps: [FirebaseDatabaseService]
+    }),
     Angulartics2Module.forChild()
     // FlexLayoutModule,
   ],
@@ -76,6 +87,7 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
     FormsModule,
     ReactiveFormsModule,
     MarkdownToHtmlModule,
+    ApftModule,
     NewsletterComponent
     // FlexLayoutModule,
   ],
