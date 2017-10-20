@@ -1,23 +1,13 @@
 {
-  "name": "fusebox-angular-universal-starter",
+  "name": "myapft",
   "version": "0.0.0-development",
-  "description": "Angular Universal starter build pipeline using FuseBox",
-  "license": "MIT",
-  "homepage": "https://angular.patrickmichalina.com",
+  "description": "My APFT Web App",
+  "homepage": "https://www.myapft.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/patrickmichalina/fusebox-angular-universal-starter"
+    "url": "https://github.com/patrickmichalina/myapft"
   },
-  "bugs": {
-    "email": "patrickmichalina@mac.com",
-    "url": "https://github.com/patrickmichalina/fusebox-angular-universal-starter/issues"
-  },
-  "author": {
-    "email": "patrickmichalina@mac.com",
-    "name": "Patrick Michalina",
-    "url": "https://patrickmichalina.com"
-  },
-  "readme": "https://github.com/patrickmichalina/fusebox-angular-universal-starter/blob/master/README.md",
+  "readme": "https://github.com/patrickmichalina/myapft/blob/master/README.md",
   "scripts": {
     "test": "jest",
     "test.ci": "jest --ci --updateSnapshot",
