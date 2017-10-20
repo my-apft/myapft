@@ -22,6 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FirebaseDatabaseService } from './services/firebase-database.service'
 import { ApftModule } from './apft/material/apft.module'
 import { APFT_STANDARDS } from './apft/apft.service';
+import { ContentService } from './services/content.service';
+import { PmKeysPipe } from './pipes/keys.pipe';
 // import { FlexLayoutModule } from '@angular/flex-layout'
 
 declare var __process_env__: any
@@ -88,7 +90,8 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
     ReactiveFormsModule,
     MarkdownToHtmlModule,
     ApftModule,
-    NewsletterComponent
+    NewsletterComponent,
+    PmKeysPipe
     // FlexLayoutModule,
   ],
   entryComponents: [
@@ -99,7 +102,8 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
     ClickOutsideDirective,
     SocialButtonDirective,
     LoginCardComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    PmKeysPipe
   ],
   providers: [
     { provide: ENV_CONFIG, useFactory: fuseBoxConfigFactory },
@@ -116,7 +120,8 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
     LoggingService,
     SettingService,
     WebSocketService,
-    FirebaseDatabaseService
+    FirebaseDatabaseService,
+    ContentService
   ]
 })
 export class SharedModule {
