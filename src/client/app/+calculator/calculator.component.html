@@ -1,8 +1,10 @@
 <mat-card>
+  <h1>U.S. Army Physical Fitness (APFT) Calculator</h1>
+  <p>Use our realtime APFT calculator to calculate your score.</p>
+  <br>
   <pm-apft-material #apft></pm-apft-material>
   <div class="results">
     <div *ngIf="apft.score | async as score">
-      <h2 [ngClass]="{ 'warn': score.failed }" class="center">{{ score.resultText }}</h2>
       <div class="wrapper">
         <div>
           <p>Sit-ups:
@@ -15,6 +17,7 @@
             <span [ngClass]="{ 'warn': score.run.failed }">{{ score.run.score }}</span>
           </p>
         </div>
+        <h2 [ngClass]="{ 'warn': score.failed }" class="center-h2">{{ score.resultText }}</h2>
         <h2 class="center-h2">{{ score.total }}</h2>
       </div>
     </div>

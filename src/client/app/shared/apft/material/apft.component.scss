@@ -14,10 +14,6 @@
       width: 100%;
     }
   }
-   ::ng-deep mat-radio-group {
-    display: flex;
-    justify-content: space-evenly;
-  }
   form {
     display: flex;
     flex-direction: column;
@@ -36,7 +32,7 @@
     }
      ::ng-deep mat-radio-group {
       display: flex;
-      justify-content: space-evenly;
+      // justify-content: start;
     }
   }
 }

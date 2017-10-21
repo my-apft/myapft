@@ -26,8 +26,10 @@
       </button>
     </div>
   </div>
-  <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Push Ups" formControlName="pu" min="0" max="200"></mat-form-field>
-  <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Sit Ups" formControlName="su" min="0" max="200"></mat-form-field>
+  <div class="flex">
+    <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Push Ups" formControlName="pu" min="0" max="200"></mat-form-field>
+    <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Sit Ups" formControlName="su" min="0" max="200"></mat-form-field>
+  </div>
   <div class="flex">
     <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Run (minutes)" formControlName="runMin" min="0" max="30"></mat-form-field>
     <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Run (seconds)" formControlName="runSec" min="0" max="60"></mat-form-field>
