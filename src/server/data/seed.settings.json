@@ -131,6 +131,14 @@
         "not-found": {
           "title": "Not Found",
           "description": "The page you requested can not be found."
+        },
+        "resources": {
+          "title": "Resources",
+          "description": "Curated resources for helping you better understand and improve your APFT score."
+        },
+        "calculator": {
+          "title": "Calculator",
+          "description": "Our offical U.S. Army Physical Fitness (APFT) Calculator. It scores push ups, sit ups, and the two mile run events."
         }
       }
     }
@@ -267,6 +275,14 @@
         "not-found": {
           "title": "Not Found",
           "description": "The page you requested can not be found."
+        },
+        "resources": {
+          "title": "Resources",
+          "description": "Curated resources for helping you better understand and improve your APFT score."
+        },
+        "calculator": {
+          "title": "Calculator",
+          "description": "Our offical U.S. Army Physical Fitness (APFT) Calculator. It scores push ups, sit ups, and the two mile run events."
         }
       }
     }

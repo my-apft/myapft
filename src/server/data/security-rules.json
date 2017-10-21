@@ -5,7 +5,7 @@
       ".write": "root.child('users').child(auth.uid).child('roles/superadmin').val() === true"
     },
     "subscribers": {
-      ".read": "false",
+      ".read": "root.child('users').child(auth.uid).child('roles/superadmin').val() === true",
       ".write": "true"
     },
     "apft-standards": {

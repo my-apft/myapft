@@ -1,9 +1,26 @@
-<!-- <h1>About the United States Army Physical Fitness Test (APFT)</h1>
-<mat-card [innerHTML]="(about$ | async)?.body"> -->
-
-<!-- </mat-card> -->
-
-<mat-card *ngIf="about$ | async as about">
-  <mat-card-title [innerHTML]="about?.title" class="title"></mat-card-title>
-  <mat-card-content [innerHTML]="about?.body" class="body-2"></mat-card-content>
-</mat-card>
+<div *ngIf="about$ | async as about">
+  <mat-card>
+    <mat-card-title [innerHTML]="about?.title" class="title"></mat-card-title>
+    <mat-card-content [innerHTML]="about?.body" class="body-2"></mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-title [innerHTML]="about?.pushups?.title" class="title"></mat-card-title>
+    <mat-card-content [innerHTML]="about?.pushups?.body" class="body-2"></mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-title [innerHTML]="about?.situps?.title" class="title"></mat-card-title>
+    <mat-card-content [innerHTML]="about?.situps?.body" class="body-2"></mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-title [innerHTML]="about?.run?.title" class="title"></mat-card-title>
+    <mat-card-content [innerHTML]="about?.run?.body" class="body-2"></mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card>
+    <mat-card-title [innerHTML]="about?.alt?.title" class="title"></mat-card-title>
+    <mat-card-content [innerHTML]="about?.alt?.body" class="body-2"></mat-card-content>
+  </mat-card>
+</div>
