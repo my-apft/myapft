@@ -11,7 +11,8 @@ export const routes: Routes = [
   { path: 'admin', loadChildren: '~/client/app/+admin/admin.module#AdminModule' },
   { path: 'changelog', loadChildren: '~/client/app/+changelog/changelog.module#ChangelogModule' },
   { path: 'instructions', loadChildren: '~/client/app/+instructions/instructions.module#InstructionsModule' },
-  { path: 'calculator', loadChildren: '~/client/app/+calculator/calculator.module#CalculatorModule' }
+  { path: 'calculator', loadChildren: '~/client/app/+calculator/calculator.module#CalculatorModule' },
+  { path: 'resources', loadChildren: '~/client/app/+resources/resources.module#ResourcesModule' }
 ]
 
 @NgModule({
