@@ -1,3 +1,4 @@
+@import './node_modules/@angular/material/_theming.scss';
 :host {
   display: flex;
   flex: 1 0;
@@ -11,6 +12,21 @@
     width: 256px;
   }
   footer {
-    padding: .5em;
+    text-align: right;
+    margin-top: 40px;
+    padding: 12px;
+    font-size: 12px;
+    background: mat-color($mat-green, 600);
+    color: rgba(255, 255, 255, 0.87);
+  }
+  .filler {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    span {
+      display: flex;
+      flex: 1
+    }
   }
 }

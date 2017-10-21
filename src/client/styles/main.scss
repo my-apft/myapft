@@ -46,8 +46,6 @@ body {
 }
 
 .card-float-container {
-  display: flex;
-  justify-content: center;
   margin: 1em;
   @media only screen and (max-width: 959px) {
     display: block;
