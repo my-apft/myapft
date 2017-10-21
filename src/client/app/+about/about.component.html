@@ -1,2 +1,9 @@
-<h1>About My APFT</h1>
-<p>A US Army Physical Fitness Calculator</p>
+<!-- <h1>About the United States Army Physical Fitness Test (APFT)</h1>
+<mat-card [innerHTML]="(about$ | async)?.body"> -->
+
+<!-- </mat-card> -->
+
+<mat-card *ngIf="about$ | async as about">
+  <mat-card-title [innerHTML]="about?.title" class="title"></mat-card-title>
+  <mat-card-content [innerHTML]="about?.body" class="body-2"></mat-card-content>
+</mat-card>

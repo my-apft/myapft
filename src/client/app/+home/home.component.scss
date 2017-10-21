@@ -1,33 +1,24 @@
+@import './node_modules/@angular/material/_theming.scss';
 :host {
-  .wrapper {
+  header {
+    height: 500px;
     display: flex;
-    justify-content: space-around;
+    background: mat-color($mat-green, 600);
+    h1,
+    h3 {
+      color: rgba(255, 255, 255, 0.87);
+    }
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-size: 56px;
+      font-weight: 300;
+      line-height: 56px;
+      margin-bottom: .1em;
+      margin-top: 2em;
+    }
+    h3 {
+      margin-bottom: 3em;
+    }
   }
-  .center-h2 {
-    align-self: center;
-  }
-  .center {
-    text-align: center;
-  }
-  // form {
-  //   display: flex;
-  //   flex-direction: column;
-  //   .btn-cal {
-  //     margin-left: -2.4em
-  //   }
-  //   .cal-flex {
-  //     flex: 1;
-  //     display: flex;
-  //   }
-  //   .flex {
-  //     display: flex;
-  //      ::ng-deep mat-form-field {
-  //       width: 100%;
-  //     }
-  //   }
-  //    ::ng-deep mat-radio-group {
-  //     display: flex;
-  //     justify-content: space-evenly;
-  //   }
-  // }
 }

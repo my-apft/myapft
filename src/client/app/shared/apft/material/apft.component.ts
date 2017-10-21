@@ -40,7 +40,16 @@ export class ApftMaterialComponent {
     ])
   })
 
-  @Output() score = this.form.statusChanges
+  maxDob = this.calcDate(17)
+  minDob = this.calcDate(75)
+
+  calcDate(years: number) {
+    const date = new Date()
+    date.setFullYear(date.getFullYear() - years)
+    return date
+  }
+
+  @Output() public score = this.form.statusChanges
     .map(a => a === 'VALID')
     .filter(Boolean)
     .map(a => this.form.value)
@@ -48,7 +57,5 @@ export class ApftMaterialComponent {
     .startWith()
     .share()
 
-  constructor(private apftService: ApftService) {
-    this.score.subscribe(console.log)
-  }
+  constructor(private apftService: ApftService) { }
 }

@@ -2,8 +2,8 @@
 
 <section *ngIf="content$ | async as instructions">
   <mat-card *ngFor="let key of instructions | pmKeys">
-    <mat-card-title [innerHTML]="instructions[key]?.title"></mat-card-title>
-    <mat-card-content [innerHTML]="instructions[key]?.body"></mat-card-content>
+    <mat-card-title [innerHTML]="instructions[key]?.title" class="title"></mat-card-title>
+    <mat-card-content [innerHTML]="instructions[key]?.body" class="body-2"></mat-card-content>
   </mat-card>
 </section>
 

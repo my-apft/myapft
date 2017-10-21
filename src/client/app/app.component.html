@@ -2,9 +2,11 @@
 <mat-sidenav-container class="sidenav-container" (pmClickOutside)="sidenav.close()" exclude="#toggle-menu-button">
   <mat-sidenav #sidenav class="sidenav mat-elevation-z6">
     <mat-list>
+      <h3 matSubheader></h3>
       <mat-list-item>
-        <a matLine mat-button routerLink="instructions" (click)="sidenav.close()">Instructions</a>
         <a matLine mat-button routerLink="calculator" (click)="sidenav.close()">Calculator</a>
+        <a matLine mat-button routerLink="instructions" (click)="sidenav.close()">Instructions</a>
+        <a matLine mat-button routerLink="about" (click)="sidenav.close()">About</a>
       </mat-list-item>
       <!-- <mat-divider></mat-divider>
       <h3 matSubheader>Boss Area</h3>

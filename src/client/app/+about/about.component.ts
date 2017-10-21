@@ -1,7 +1,5 @@
-import { PlatformService } from './../shared/services/platform.service'
-import { ChangeDetectionStrategy, Component } from '@angular/core'
-import { FirebaseDatabaseService } from '../shared/services/firebase-database.service'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core'
+import { ContentService } from '../shared/services/content.service'
 
 @Component({
   selector: 'pm-about',
@@ -10,31 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutComponent {
-  posts$ = this.db.getList<{ title: string, html: string }>('posts').map(a => {
-    return a.map((b: any) => {
-      return {
-        title: b.title || '',
-        html: b.html || ''
-      }
-    })
-  })
+  @HostBinding('class.card-float-container') containerClass = true
+  about$ = this.cs.content('about')
 
-  public form = new FormGroup({
-    title: new FormControl('', [
-      Validators.required
-    ]),
-    html: new FormControl('', [
-      Validators.required
-    ])
-  })
-
-  constructor(private db: FirebaseDatabaseService, ps: PlatformService) { }
-
-  create() {
-    this.db.getListRef('posts').push(this.form.value)
-  }
-
-  removeAll() {
-    this.db.getObjectRef('posts').remove()
-  }
+  constructor(private cs: ContentService) { }
 }
