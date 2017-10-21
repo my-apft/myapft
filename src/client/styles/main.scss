@@ -1,18 +1,28 @@
 @import './node_modules/@angular/material/_theming.scss';
 @include mat-core();
-$primary: mat-palette($mat-blue, 700);
-$accent: mat-palette($mat-pink);
-$theme: mat-light-theme($primary, $accent);
-@include angular-material-theme($theme);
-.dark-theme {
-  $dark-p: mat-palette($mat-pink, 700);
-  $dark-a: mat-palette($mat-blue-grey);
-  $dark-t: mat-dark-theme($dark-p, $dark-a);
-  @include angular-material-theme($dark-t);
+$app-primary: mat-palette($mat-green, 900);
+$app-accent : mat-palette($mat-green, A700);
+$app-theme : mat-light-theme($app-primary, $app-accent);
+@include angular-material-theme($app-theme);
+// // Define an alternate dark theme.
+// $dark-primary: mat-palette($mat-green);
+// $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+// $dark-warn:    mat-palette($mat-deep-orange);
+// $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.app-theme {
+  @include angular-material-theme($app-theme);
 }
 
 .warn {
   color: mat-color($mat-red, 500);
+}
+
+.app-primary-bg {
+  background-color: mat-color($mat-green, 900);
+  color: rgba(255, 255, 255, 0.87);
 }
 
 html {
@@ -62,4 +72,3 @@ body {
 .mat-menu-content {
   padding: 0 !important;
 }
-

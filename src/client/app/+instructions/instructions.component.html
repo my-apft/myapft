@@ -1,9 +1,9 @@
 <h1>Army Physical Fitness Test (APFT) Instructions</h1>
 
-<div *ngIf="content$ | async as instructions">
+<section *ngIf="content$ | async as instructions">
   <mat-card *ngFor="let key of instructions | pmKeys">
     <mat-card-title [innerHTML]="instructions[key]?.title"></mat-card-title>
     <mat-card-content [innerHTML]="instructions[key]?.body"></mat-card-content>
   </mat-card>
-</div>
+</section>
 
