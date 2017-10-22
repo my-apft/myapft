@@ -20,39 +20,25 @@ export class ApftService {
     return Math.abs(ageDate.getUTCFullYear() - 1970)
   }
 
-  calculateEventScore(standard: ScoringStandard, event: ApftEvent, age: number, gender: Gender, raw: number): number {
-    return Object.keys(standard[event][gender]).map(key => {
-      const split = key.split('-')
-      const length = +split[1] - +split[0] + 1
-      const res = Array.from(new Array(length), (x, i) => i + (+split[0]))
-      return {
-        range: res,
-        scores: standard[event][gender][key]
-      }
-    })
-      .filter(a => a.range.some(b => b === age))
-      .map(a => {
-        if (raw < 0) return 0
-        if (raw >= a.scores.length) return 100
-        return a.scores[raw]
-      })
-      .pop() || 0
+  calculateEventScore(standard: ScoringStandard, event: ApftEvent, ageKey: string, gender: Gender, raw: number): number {
+    if (raw <= 0) return 0
+    if (raw >= standard[event][gender][ageKey].length) return 100
+    return standard[event][gender][ageKey][raw] || 0
   }
 
   calculate(apft: ApftTest) {
     const year = apft.date.getFullYear()
 
     return this.scorecard$.pluck(year.toString()).map((scorecard: ScoringStandard) => {
-      const age = this.calculateAge(apft.dob, apft.date)
       const ticks = 90
       const baseSeconds = 1242
       const seconds = apft.runMin * 60 + apft.runSec
       const runRaw = Array.from(Array(ticks), (v: any, k: any) => baseSeconds - (k * 6))
         .findIndex((val, i, coll) => seconds >= val && seconds <= coll[i - 1])
 
-      const pu = this.calculateEventScore(scorecard, 'pu', age, apft.gender, apft.pu)
-      const su = this.calculateEventScore(scorecard, 'su', age, apft.gender, apft.su)
-      const run = this.calculateEventScore(scorecard, 'run', age, apft.gender, runRaw <= 0 ? ticks : runRaw)
+      const pu = this.calculateEventScore(scorecard, 'pu', apft.ageRange, apft.gender, apft.pu)
+      const su = this.calculateEventScore(scorecard, 'su', apft.ageRange, apft.gender, apft.su)
+      const run = this.calculateEventScore(scorecard, 'run', apft.ageRange, apft.gender, runRaw)
 
       const finalRun = { score: run, raw: `${apft.runMin}:${apft.runSec}`, pass: run >= 60, failed: run < 60 }
       const finalSu = { score: su, raw: apft.su, pass: su >= 60, failed: su < 60 }
@@ -90,7 +76,7 @@ interface ScoringStandard {
 
 interface ApftTest {
   gender: Gender
-  dob: Date
+  ageRange: string
   date: Date
   runMin: number
   runSec: number

@@ -1,37 +1,66 @@
 <form [formGroup]="form" novalidate>
-  <mat-radio-group formControlName="gender">
-    <mat-radio-button value="male">Male</mat-radio-button>
-    <mat-radio-button value="female">Female</mat-radio-button>
-  </mat-radio-group>
-  <br>
-  <div class="cal-flex">
-    <div>
-      <mat-form-field>
-        <input matInput [matDatepicker]="dobpicker" placeholder="Date of Birth" formControlName="dob" [max]="maxDob" [min]="minDob">
-        <mat-datepicker #dobpicker></mat-datepicker>
-        <mat-error *ngIf="form.get('dob').hasError('matDatepickerMin')"> Must be younger than 75 </mat-error>
-        <mat-error *ngIf="form.get('dob').hasError('matDatepickerMax')"> Must be older than 17 </mat-error>
-      </mat-form-field>
-      <button mat-icon-button (click)="dobpicker.open()" class="btn-cal" type="button">
-        <mat-icon fontSet="fa" fontIcon="fa-calendar" aria-label="calendar"></mat-icon>
-      </button>
-    </div>
-    <div>
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Date of Test" formControlName="date">
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <button mat-icon-button (click)="picker.open()" class="btn-cal" type="button">
-        <mat-icon fontSet="fa" fontIcon="fa-calendar" aria-label="calendar"></mat-icon>
-      </button>
-    </div>
+  <div style="margin-right: 1em;">
+    <mat-button-toggle-group vertical="true" formControlName="ageRange">
+      <mat-button-toggle value="0" disabled class="center">
+        <span>Age</span>
+      </mat-button-toggle>
+      <mat-button-toggle value="17-21">17-21</mat-button-toggle>
+      <mat-button-toggle value="22-26">22-26</mat-button-toggle>
+      <mat-button-toggle value="27-31">27-31</mat-button-toggle>
+      <mat-button-toggle value="32-36">32-36</mat-button-toggle>
+      <mat-button-toggle value="37-41">37-41</mat-button-toggle>
+      <mat-button-toggle value="42-46">42-46</mat-button-toggle>
+      <mat-button-toggle value="47-51">47-51</mat-button-toggle>
+      <mat-button-toggle value="52-56">52-56</mat-button-toggle>
+    </mat-button-toggle-group>
   </div>
-  <div class="flex">
-    <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Push Ups" formControlName="pu" min="0" max="200"></mat-form-field>
-    <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Sit Ups" formControlName="su" min="0" max="200"></mat-form-field>
-  </div>
-  <div class="flex">
-    <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Run (minutes)" formControlName="runMin" min="0" max="30"></mat-form-field>
-    <mat-form-field><input matInput type="number" pattern="\d*" placeholder="Run (seconds)" formControlName="runSec" min="0" max="60"></mat-form-field>
+  <div class="main-form">
+    <div class="genders">
+      <mat-button-toggle-group formControlName="gender">
+        <mat-button-toggle value="male"> Male</mat-button-toggle>
+        <mat-button-toggle value="female">Female</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div *ngIf="score | async as sc">
+      <div class="flex-spin">
+        <span class="total">{{ sc.total || '' }}</span>
+        <mat-progress-spinner [color]="sc.failed ? 'warn' : 'primary'" [value]="(score | async)?.total / 3"></mat-progress-spinner>
+      </div>
+      <div class="inline-headers">
+        <div>
+          <p>Sit-Ups</p>
+          <p [ngClass]="{ 'warn': sc.su.failed }">{{ sc.su.score }}</p>
+        </div>
+        <div>
+          <p>Push-Ups</p>
+          <p [ngClass]="{ 'warn': sc.pu.failed }">{{ sc.pu.score }}</p>
+        </div>
+        <div>
+          <p>2-Mile Run</p>
+          <p [ngClass]="{ 'warn': sc.run.failed }">{{ sc.run.score }}</p>
+        </div>
+        <!-- <h2 class="center-h2">{{ sc.total }}</h2> -->
+      </div>
+    </div>
+    <div class="inner-form">
+      <div class="flex-vert">
+        <div class="flex">
+          <mat-form-field>
+            <input matInput type="number" pattern="\d*" placeholder="Push Ups" formControlName="pu">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" pattern="\d*" placeholder="Sit Ups" formControlName="su">
+          </mat-form-field>
+        </div>
+        <div class="flex">
+          <mat-form-field>
+            <input matInput type="number" pattern="\d*" placeholder="Run (minutes)" formControlName="runMin">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" pattern="\d*" placeholder="Run (seconds)" formControlName="runSec">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
   </div>
 </form>

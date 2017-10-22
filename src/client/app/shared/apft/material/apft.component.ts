@@ -23,38 +23,33 @@ export class ApftMaterialComponent {
     date: new FormControl(new Date(), [
       Validators.required
     ]),
-    dob: new FormControl('', [
+    ageRange: new FormControl('17-21', [
       Validators.required
     ]),
-    pu: new FormControl('', [
-      Validators.required
+    pu: new FormControl(0, [
+      Validators.required,
+      Validators.max(200)
     ]),
-    su: new FormControl('', [
-      Validators.required
+    su: new FormControl(0, [
+      Validators.required,
+      Validators.max(200)
     ]),
-    runMin: new FormControl('', [
-      Validators.required
+    runMin: new FormControl('00', [
+      Validators.required,
+      Validators.max(30)
     ]),
-    runSec: new FormControl('', [
-      Validators.required
+    runSec: new FormControl('00', [
+      Validators.required,
+      Validators.max(60)
     ])
   })
-
-  maxDob = this.calcDate(17)
-  minDob = this.calcDate(75)
-
-  calcDate(years: number) {
-    const date = new Date()
-    date.setFullYear(date.getFullYear() - years)
-    return date
-  }
 
   @Output() public score = this.form.statusChanges
     .map(a => a === 'VALID')
     .filter(Boolean)
     .map(a => this.form.value)
+    .startWith(this.form.value)
     .flatMap(form => this.apftService.calculate(form))
-    .startWith()
     .share()
 
   constructor(private apftService: ApftService) { }

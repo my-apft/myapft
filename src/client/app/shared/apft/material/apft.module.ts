@@ -4,8 +4,9 @@ import { ModuleWithProviders, NgModule } from '@angular/core'
 import { ApftMaterialComponent } from './apft.component'
 import { ApftService } from '../apft.service'
 import {
-  MatButtonModule, MatDatepickerModule, MatFormFieldModule,
-  MatIconModule, MatInputModule, MatNativeDateModule, MatRadioModule
+  MatButtonModule, MatButtonToggleModule, MatDatepickerModule,
+  MatFormFieldModule, MatIconModule, MatInputModule, MatNativeDateModule,
+  MatProgressSpinnerModule, MatRadioModule
 } from '@angular/material'
 
 @NgModule({
@@ -19,7 +20,9 @@ import {
     MatNativeDateModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatButtonToggleModule
   ],
   declarations: [ApftMaterialComponent],
   exports: [ApftMaterialComponent]

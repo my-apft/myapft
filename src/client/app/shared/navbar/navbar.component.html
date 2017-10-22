@@ -2,7 +2,10 @@
   <button id="toggle-menu-button" mat-icon-button (click)="onMenuIconClick.next()" angulartics2On="click" angularticsEvent="ToggleSideMenu">
     <mat-icon fontSet="fa" fontIcon="fa-bars"></mat-icon>
   </button>
-  <a class="nav-button" mat-button routerLink >My APFT</a>
+  <a class="nav-button" mat-button routerLink >
+    <img src="https://firebasestorage.googleapis.com/v0/b/myapft-35200.appspot.com/o/logo_yellow.svg?alt=media&token=d1353e46-e3bb-4de1-a6eb-2e6bbb54289d"/>
+    <span>MY APFT</span>
+  </a>
   <div class="flex-spacer"></div>
   <a class="nav-button" mat-button *ngFor="let item of navbarService.menu$ | async" [routerLink]="item.route" routerLinkActive="active"
     [routerLinkActiveOptions]="{exact: true}" [ngClass]="{ 'hide-mobile': item.hideMobile }">

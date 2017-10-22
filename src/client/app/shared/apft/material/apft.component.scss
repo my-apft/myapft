@@ -15,8 +15,7 @@
     }
   }
   form {
-    display: flex;
-    flex-direction: column;
+    display: flex; // flex-direction: column;
     .btn-cal {
       margin-left: -2.4em
     }
@@ -31,8 +30,46 @@
       }
     }
      ::ng-deep mat-radio-group {
-      display: flex;
-      // justify-content: start;
+      display: flex; // justify-content: start;
     }
+    .main-form {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
+      max-width: 280px;
+    }
+    .inner-form {
+      margin-top: 1em;
+      flex: 1;
+    }
+    .flex-vert {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .total {
+    position: relative;
+    left: 62px;
+    top: 44px;
+  }
+  .center {
+    text-align: center;
+  }
+  .inline-headers {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+    p {
+      margin: 0;
+      text-align: center;
+    }
+  }
+  .flex-spin {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+  }
+  .genders {
+    text-align: center;
   }
 }
