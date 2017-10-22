@@ -14,7 +14,7 @@ export class SettingService implements ISettingService {
   public initialSettings: ISetting
   public settings$ = this.db
     .get<ISettings>('site-settings')
-    .map(a => a && a[this.env.config.env || 'prod'])
+    .map(a => a && (a as any)[this.env.config.env || 'prod'])
     .map(settings => {
       return {
         injections: [],

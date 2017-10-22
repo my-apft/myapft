@@ -3,7 +3,6 @@ import { SettingService } from './services/setting.service'
 import { RouterModule } from '@angular/router'
 import { NavbarComponent } from './navbar/navbar.component'
 import { LoginCardComponent } from './login-card/login-card.component'
-import { CookieService } from './services/cookie.service'
 import { CommonModule } from '@angular/common'
 import { PlatformService } from './services/platform.service'
 import { ModuleWithProviders, NgModule } from '@angular/core'
@@ -114,13 +113,11 @@ export function loggerConfigFactory(ps: PlatformService, gooogleAnalytics: Angul
       deps: [PlatformService, Angulartics2GoogleAnalytics]
     },
     PlatformService,
-    CookieService,
     EnvironmentService,
     NavbarService,
     LoggingService,
     SettingService,
     WebSocketService,
-    FirebaseDatabaseService,
     ContentService
   ]
 })

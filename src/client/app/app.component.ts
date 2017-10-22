@@ -76,12 +76,6 @@ export class AppComponent {
           srs.setHeaders(response.headers)
         }
       })
-
-    // Uncomment to turn on direct web-socket connection with server
-    // if (ps.isBrowser) {
-    //   wss.messageBus$.subscribe()
-    //   wss.send({ message: 'ws test' })
-    // }
   }
 
   inject(doc: HTMLDocument, renderer: Renderer2, injectable: Injectable) {

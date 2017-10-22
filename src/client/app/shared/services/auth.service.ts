@@ -42,9 +42,11 @@ export class AuthService implements IAuthService {
         ? this.cookieMapper(cookies[this.COOKIE_KEY])
         : undefined
     })
+    .distinctUntilChanged()
+    .share()
 
   cookieMapper(data: any): any {
-    if (!data || !data.jwt) return undefined
+    if (!data || !data.jwt && !this.jwtHelper.isTokenExpired(data.jwt)) return undefined
     const jwtDecoded = this.jwtHelper.decodeToken(data.jwt)
     return {
       ...data,
@@ -55,22 +57,24 @@ export class AuthService implements IAuthService {
   }
 
   private userSource = new BehaviorSubject<ExtendedUser>(this.cookieMapper(this.cs.get(this.COOKIE_KEY)))
-  public user$ = this.userSource.asObservable().shareReplay()
+  public user$ = this.userSource.shareReplay()
   public userVer$ = this.user$.filter(Boolean)
   private fbUser$ = this.fbAuth.idToken
     .flatMap(a => a ? a.getIdToken() : of(undefined), (fbUser, idToken) => ({ fbUser: fbUser ? fbUser : undefined, idToken }))
 
-  constructor(private cs: CookieService, private fbAuth: AngularFireAuth, ss: SettingService, ps: PlatformService,
+  constructor(private cs: CookieService, private fbAuth: AngularFireAuth, ss: SettingService, private ps: PlatformService,
     private db: FirebaseDatabaseService, @Inject(FB_COOKIE_KEY) private COOKIE_KEY: string) {
     this.viaCookies$.subscribe(a => this.userSource.next(a))
 
     if (ps.isServer) return
-    this.user$.distinctUntilChanged().subscribe(user => {
-      if (!user) return
-      this.db
-        .getObjectRef(`users/${user.id}`)
-        .update({ email: user.email })
-    })
+
+    // this.user$.subscribe(user => {
+    //   if (!user || !this.db) return
+    //   this.db
+    //     .getObjectRef(`users/${user.id}`)
+    //     .update({ email: user.email })
+    //     .catch(() => undefined)
+    // })
 
     combineLatest(this.fbUser$, ss.settings$, (fbUser, settings) => ({ ...fbUser, ...settings }))
       .flatMap(res => {
@@ -90,7 +94,7 @@ export class AuthService implements IAuthService {
         }
       })
       .subscribe(res => {
-        if (!res.idToken) {
+        if (!res || !res.idToken) {
           this.logout()
           return
         }
@@ -110,6 +114,11 @@ export class AuthService implements IAuthService {
             phoneNumber: res.fbUser.phoneNumber,
             providers: ((res.fbUser && res.fbUser.providerData) || []).map(a => a && a.providerId)
           }, { expires })
+
+          this.db
+            .getObjectRef(`users/${res.fbUser.uid}`)
+            .update({ email: res.fbUser.email })
+            .catch(() => undefined)
         }
       })
   }
@@ -138,15 +147,11 @@ export class AuthService implements IAuthService {
     return fromPromise(this.fbAuth.auth.signInWithEmailAndPassword(email, password))
   }
 
-  addToUsersTable(user: any) {
-    return fromPromise(this.db.getListRef('users').push({
-      email: '123@mac.com',
-      userId: 'zzxcasq123'
-    }))
-  }
-
-  logout(): void {
-    this.cs.remove(this.COOKIE_KEY)
+  logout() {
+    if (this.ps.isBrowser) {
+      return this.fbAuth.auth.signOut()
+        .then(() => setTimeout(() => this.cs.remove(this.COOKIE_KEY), 1000))
+    }
   }
 
   refreshEmailCredentials(paswword: string) {

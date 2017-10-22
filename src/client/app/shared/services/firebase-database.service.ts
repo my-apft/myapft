@@ -10,15 +10,15 @@ export class FirebaseDatabaseService {
   get<T>(path: string) {
     const cached = this.ts.get<T | undefined>(this.cacheKey(path), undefined)
     return cached
-      ? this.db.object(path).valueChanges<T>().startWith(cached)
-      : this.db.object(path).valueChanges<T>()
+      ? this.db.object(path).valueChanges<T>().startWith(cached).catch(a => Observable.of({}))
+      : this.db.object(path).valueChanges<T>().catch(a => Observable.of({}))
   }
 
   getList<T>(path: string): Observable<T[]> {
     const cached = this.ts.get<T[] | undefined>(this.cacheKey(path), undefined)
     return cached
-      ? this.db.list(path).valueChanges<T>().startWith(cached as any)
-      : this.db.list(path).valueChanges<T>()
+      ? this.db.list(path).valueChanges<T>().startWith(cached as any).catch(a => Observable.of([]))
+      : this.db.list(path).valueChanges<T>().catch(a => Observable.of([]))
   }
 
   getListRef(path: string) {

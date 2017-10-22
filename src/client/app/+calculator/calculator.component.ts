@@ -34,6 +34,7 @@ export class CalculatorComponent implements OnInit {
 
   save() {
     this.auth.user$
+      .filter(Boolean)
       .map(user => ({ ...this.score, userId: user.id }))
       .take(1)
       .flatMap(record => this.db.getListRef(`users/${record.userId}/tests`).push(record))

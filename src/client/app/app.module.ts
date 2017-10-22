@@ -20,6 +20,8 @@ import { TransferHttpCacheModule } from '@nguniversal/common'
 import { LoginGuard } from './shared/services/guard-login.service'
 import { AuthService, FB_COOKIE_KEY } from './shared/services/auth.service'
 import { CACHE_TAG_CONFIG, CACHE_TAG_FACTORY, CacheTagConfig, HttpCacheTagModule } from './shared/http-cache-tag/http-cache-tag.module'
+import { CookieService } from './shared/services/cookie.service'
+import { FirebaseDatabaseService } from './shared/services/firebase-database.service'
 
 // import { ServiceWorkerModule } from '@angular/service-worker'
 
@@ -117,7 +119,9 @@ export function cacheTagFactory(srs: ServerResponseService): any {
       deps: [EnvironmentService]
     },
     AuthService,
-    LoginGuard
+    LoginGuard,
+    CookieService,
+    FirebaseDatabaseService
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

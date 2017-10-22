@@ -28,5 +28,6 @@ export class NewsletterComponent {
         updates: true
       })
       .then(() => this.dialogRef.close())
+      .catch()
   }
 }
