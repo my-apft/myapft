@@ -17,7 +17,7 @@ import { MetaGuard } from '@ngx-meta/core'
           },
           response: {
             cache: {
-              directive: 'no-cache'
+              directive: 'no-store'
             }
           }
         }
