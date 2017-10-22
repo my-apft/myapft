@@ -12,14 +12,11 @@ import { AppServerModule } from './server.angular.module'
 import { sitemap } from './server.sitemap'
 import { exists, existsSync } from 'fs'
 import { argv } from 'yargs'
-import { useApi } from './api'
 import { join, resolve } from 'path'
 import { dbSeed } from './data/index'
 import { ANGULAR_APP_CONFIG, FB_SERVICE_ACCOUNT_CONFIG } from './server.config'
 import http = require('http')
 import ms = require('ms')
-
-// import { useWebSockets } from './server.web-socket'
 
 const shrinkRay = require('shrink-ray')
 const minifyHTML = require('express-minify-html')
@@ -59,16 +56,16 @@ const logger = createLogger({
 
 if (!isTest) app.use(bunyanMiddleware({ logger, excludeHeaders: ['authorization', 'cookie'] }))
 
-// useWebSockets(server) // uncommne to activate manual web-sockets
 app.engine('html', ngExpressEngine({ bootstrap: AppServerModule }))
 app.set('view engine', 'html')
 app.set('views', root)
+app.set('etag', false)
 app.use(cookieParser())
 app.use(shrinkRay())
 
 // You can remove the API server by deleteing these two lines
-useApi(app)
-app.set('ignore-routes', ['/api/'])
+// useApi(app)
+// app.set('ignore-routes', ['/api/'])
 
 if (isProd) {
   app.use(minifyHTML({
@@ -109,7 +106,7 @@ app.get('/sitemap.xml', (req: express.Request, res: express.Response) => {
 })
 
 app.get('**', (req: express.Request, res: express.Response, next: express.NextFunction) => {
-  if ((req.app.get('ignore-routes') as string[]).some(a => req.url.includes(a))) return next()
+  // if ((req.app.get('ignore-routes') as string[]).some(a => req.url.includes(a))) return next()
   return res.render('index', {
     req,
     res

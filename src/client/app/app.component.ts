@@ -63,6 +63,8 @@ export class AppComponent {
         if (response && response.cache) {
           if (response.cache.directive === 'private') {
             srs.setCachePrivate()
+          } else if (response.cache.directive === 'no-store' ) {
+            srs.setCacheNone()
           } else {
             srs.setCache(response.cache.directive, response.cache.maxage, response.cache.smaxage)
           }
