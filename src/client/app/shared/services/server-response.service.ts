@@ -80,8 +80,6 @@ export class ServerResponseService implements IServerResponseService {
     if (this.response) {
       this.setCache('no-store')
       this.setHeader('Pragma', 'no-cache')
-      this.setHeader('Expires', new Date(Date.now()).toUTCString())
-      this.response.removeHeader('ETag')
     }
     return this
   }
