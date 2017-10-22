@@ -33,8 +33,8 @@ export class ApftService {
       const ticks = 90
       const baseSeconds = 1242
       const seconds = apft.runMin * 60 + apft.runSec
-      const runRaw = Array.from(Array(ticks), (v: any, k: any) => baseSeconds - (k * 6))
-        .findIndex((val, i, coll) => seconds >= val && seconds <= coll[i - 1])
+      const runRaw = Array.from(Array(ticks), (v: any, k: any) => baseSeconds - (k * 6) + 1)
+        .findIndex((val, i, coll) => seconds >= val && seconds <= coll[i - 1]) - 1
 
       const pu = this.calculateEventScore(scorecard, 'pu', apft.ageRange, apft.gender, apft.pu)
       const su = this.calculateEventScore(scorecard, 'su', apft.ageRange, apft.gender, apft.su)
