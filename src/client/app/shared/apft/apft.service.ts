@@ -47,6 +47,7 @@ export class ApftService {
       const passed = finalPu.pass && finalSu.pass && finalRun.pass
 
       return {
+        date: apft.date.toISOString(),
         run: finalRun,
         pu: finalPu,
         su: finalSu,

@@ -19,7 +19,10 @@
     "users": {
       "$uid": {
         ".read": "auth != null && auth.uid == $uid || root.child('users').child(auth.uid).child('roles/superadmin').val() === true",
-        ".write": "root.child('users').child(auth.uid).child('roles/superadmin').val() === true"
+        ".write": "auth != null && auth.uid == $uid || root.child('users').child(auth.uid).child('roles/superadmin').val() === true",
+        "roles": {
+          ".write": "auth != null && root.child('users').child(auth.uid).child('roles/superadmin').val() === true"
+        }
       }
     }
   }

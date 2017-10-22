@@ -17,9 +17,7 @@ import { MetaGuard } from '@ngx-meta/core'
           },
           response: {
             cache: {
-              directive: 'public',
-              maxage: '7d',
-              smaxage: '7d'
+              directive: 'private'
             }
           }
         }

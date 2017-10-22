@@ -10,4 +10,11 @@
   .center {
     text-align: center;
   }
+  .flex-it {
+    display: flex;
+    flex-direction: column;
+    button {
+      align-self: center;
+    }
+  }
 }

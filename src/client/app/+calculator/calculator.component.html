@@ -1,25 +1,56 @@
-<mat-card>
+<mat-card class="flex-it">
   <h1>U.S. Army Physical Fitness (APFT) Calculator</h1>
   <p>Use our realtime APFT calculator to calculate your score.</p>
   <br>
-  <pm-apft-material #apft></pm-apft-material>
-  <!-- <div class="results">
-    <div *ngIf="apft.score | async as score">
-      <div class="wrapper">
-        <div>
-          <p>Sit-ups:
-            <span [ngClass]="{ 'warn': score.su.failed }">{{ score.su.score }}</span>
-          </p>
-          <p>Push-ups:
-            <span [ngClass]="{ 'warn': score.pu.failed }">{{ score.pu.score }}</span>
-          </p>
-          <p>2-Mile Run:
-            <span [ngClass]="{ 'warn': score.run.failed }">{{ score.run.score }}</span>
-          </p>
-        </div>
-        <h2 [ngClass]="{ 'warn': score.failed }" class="center-h2">{{ score.resultText }}</h2>
-        <h2 class="center-h2">{{ score.total }}</h2>
-      </div>
-    </div>
-  </div> -->
+  <pm-apft-material></pm-apft-material>
+  <br>
+  <div [ngSwitch]="loggedIn$ | async">
+    <a *ngSwitchCase="false" mat-raised-button color="primary" routerLink="/login">Signup/Login to Save</a>
+    <button *ngSwitchCase="true" mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+</mat-card>
+<br>
+<mat-card *ngIf="loggedIn$ | async">
+  <h2>Your APFT History</h2>
+  <mat-table #table [dataSource]="dataSource">
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.date | date }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pu">
+      <mat-header-cell *matHeaderCellDef> Push Ups </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.pu.score }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="su">
+      <mat-header-cell *matHeaderCellDef> Sit Ups </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.su.score }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="run">
+      <mat-header-cell *matHeaderCellDef> Run </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.run.score }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.total }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <!-- <button mat-icon-button>
+          <mat-icon fontSet="fa" fontIcon="fa-print"></mat-icon>
+        </button> -->
+        <button mat-icon-button (click)="deleteRecord(element)">
+          <mat-icon fontSet="fa" fontIcon="fa-trash"></mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </mat-card>
