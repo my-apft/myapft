@@ -55,7 +55,7 @@ export class AuthService implements IAuthService {
   }
 
   private userSource = new BehaviorSubject<ExtendedUser>(this.cookieMapper(this.cs.get(this.COOKIE_KEY)))
-  public user$ = this.userSource.asObservable()
+  public user$ = this.userSource.asObservable().shareReplay()
   public userVer$ = this.user$.filter(Boolean)
   private fbUser$ = this.fbAuth.idToken
     .flatMap(a => a ? a.getIdToken() : of(undefined), (fbUser, idToken) => ({ fbUser: fbUser ? fbUser : undefined, idToken }))
@@ -65,13 +65,19 @@ export class AuthService implements IAuthService {
     this.viaCookies$.subscribe(a => this.userSource.next(a))
 
     if (ps.isServer) return
+    this.user$.distinctUntilChanged().subscribe(user => {
+      if (!user) return
+      this.db
+        .getObjectRef(`users/${user.id}`)
+        .update({ email: user.email })
+    })
 
     combineLatest(this.fbUser$, ss.settings$, (fbUser, settings) => ({ ...fbUser, ...settings }))
       .flatMap(res => {
         if (res.fbUser && res.fbUser.uid) {
           return this.db
             .get(`users/${res.fbUser.uid}`)
-            .pluck('roles')
+            .map(a => a ? (a as any).roles : {})
         } else {
           return of(res)
         }
@@ -130,6 +136,13 @@ export class AuthService implements IAuthService {
 
   signInWithEmailAndPassword(email: string, password: string) {
     return fromPromise(this.fbAuth.auth.signInWithEmailAndPassword(email, password))
+  }
+
+  addToUsersTable(user: any) {
+    return fromPromise(this.db.getListRef('users').push({
+      email: '123@mac.com',
+      userId: 'zzxcasq123'
+    }))
   }
 
   logout(): void {

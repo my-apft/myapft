@@ -5,7 +5,7 @@
   <pm-apft-material></pm-apft-material>
   <br>
   <div [ngSwitch]="loggedIn$ | async">
-    <a *ngSwitchCase="false" mat-raised-button color="primary" routerLink="/login">Signup/Login to Save</a>
+    <a *ngSwitchCase="false" mat-raised-button color="primary" routerLink="/login" [queryParams]="{ redirect: 'calculator'}">Signup/Login to Save</a>
     <button *ngSwitchCase="true" mat-raised-button color="primary" (click)="save()">Save</button>
   </div>
 </mat-card>
